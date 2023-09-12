@@ -1,14 +1,14 @@
 from flask import Flask, request, jsonify
 import datetime
 
-my_application = Flask(__name__)
+myapplication = Flask(__name__)
 
 # url = {'backend' : 'https://github.com/Ayo-Oni-515/HNG_BACKEND/blob/main/hng_stage_1.py'}
 
-@my_application.route("/my_endpoint", methods=['GET'])
+@myapplication.route("/myendpoint", methods=['GET'])
 def get_info():
-    first_argument = request.args.get('slack_name')
-    second_argument = request.args.get('track')
+    first_argument = str(request.args.get('slack_name'))
+    second_argument = str(request.args.get('track'))
     day = datetime.datetime.utcnow().strftime('%A')
     time = datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S UTC')
     
@@ -23,7 +23,7 @@ def get_info():
         "status_code": 200
     }
 
-    return jsonify(information), 200
+    return jsonify(information)
 
 if __name__ == '__main__':
-    my_application.run(debug=True)
+    myapplication.run(debug=True)
