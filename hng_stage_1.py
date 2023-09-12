@@ -23,7 +23,7 @@ def get_info():
         "status_code": 200
     }
 
-    return jsonify(information)
+    return jsonify(information), 200
 
 if __name__ == '__main__':
     my_application.run(debug=True)
